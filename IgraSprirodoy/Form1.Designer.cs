@@ -44,7 +44,7 @@
             this.textBox_Am.Name = "textBox_Am";
             this.textBox_Am.Size = new System.Drawing.Size(100, 20);
             this.textBox_Am.TabIndex = 0;
-            this.textBox_Am.Text = "4";
+            this.textBox_Am.Text = "10";
             this.textBox_Am.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox_Am.TextChanged += new System.EventHandler(this.TextBox_Am_TextChanged);
             // 
