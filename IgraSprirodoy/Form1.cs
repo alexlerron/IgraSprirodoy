@@ -105,11 +105,15 @@ namespace IgraSprirodoy
                 }
 
             }
-            Form_Reshenie Mya = new Form_Reshenie(MassivResh, Am, Pn);
+            Form_Reshenie Mya = new Form_Reshenie(MassivResh, Am, Pn, Alpha);
             Mya.Show();
            
         }
-        
+
+        private void TextBox_Alpha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

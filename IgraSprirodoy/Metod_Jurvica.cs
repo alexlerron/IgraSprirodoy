@@ -38,12 +38,12 @@ namespace IgraSprirodoy
         }
         public int[] maxJurvica()
         {
-            int[] maxMassJur = new int[StolbJurvica];
+            int[] maxMassJur = new int[StrokaJurvica];
             int max;
-            for (int i = 0; i < StolbJurvica; i++)
+            for (int i = 0; i < StrokaJurvica; i++)
             {
                 max = int.MinValue;
-                for (int j = 0; j < StrokaJurvica; j++)
+                for (int j = 0; j < StolbJurvica; j++)
                 {
                     if (max < massJurvica[i, j])
                         max = massJurvica[i, j];
@@ -52,46 +52,49 @@ namespace IgraSprirodoy
             }
             return maxMassJur;
         }
-        public List<int> MinStolbJurvica()
-        {
-            int[] JurvicaMin;
-            int min;
-            min = int.MinValue;
-            JurvicaMin = minJurvica();
-            for (int j = 0; j < StrokaJurvica; j++)
-            {
-                if (JurvicaMin[j] > min)
-                    min = JurvicaMin[j];
-            }
-            List<int> chislaMin = new List<int>();
-            for (int j = 0; j < StrokaJurvica; j++)
-            {
-                if (JurvicaMin[j] == min)
-                    chislaMin.Add(j);
-            }
-            return chislaMin;
 
-        }
-        public List<int> MaxStolbJurvica()
-        {
-            int[] JurvicaMax;
-            int max;
-            max = int.MinValue;
-            JurvicaMax = minJurvica();
-            for (int j = 0; j < StrokaJurvica; j++)
-            {
-                if (JurvicaMax[j] > max)
-                    max = JurvicaMax[j];
-            }
-            List<int> chislaMax = new List<int>();
-            for (int j = 0; j < StrokaJurvica; j++)
-            {
-                if (JurvicaMax[j] == max)
-                    chislaMax.Add(j);
-            }
-            return chislaMax;
+        
 
-        }
+        //public List<int> MinStolbJurvica()
+        //{
+        //    int[] JurvicaMin;
+        //    int minJur;
+        //    minJur = int.MinValue;
+        //    JurvicaMin = minJurvica();
+        //    for (int j = 0; j < StrokaJurvica; j++)
+        //    {
+        //        if (JurvicaMin[j] > minJur)
+        //            minJur = JurvicaMin[j];
+        //    }
+        //    List<int> chislaMin = new List<int>();
+        //    for (int j = 0; j < StrokaJurvica; j++)
+        //    {
+        //        if (JurvicaMin[j] == minJur)
+        //            chislaMin.Add(j);
+        //    }
+        //    return chislaMin;
+
+        //}
+        //public List<int> MaxStolbJurvica()
+        //{
+        //    int[] JurvicaMax;
+        //    int maxJur;
+        //    maxJur = int.MinValue;
+        //    JurvicaMax = maxJurvica();
+        //    for (int j = 0; j < StrokaJurvica; j++)
+        //    {
+        //        if (JurvicaMax[j] > maxJur)
+        //            maxJur = JurvicaMax[j];
+        //    }
+        //    List<int> chislaMax = new List<int>();
+        //    for (int j = 0; j < StrokaJurvica; j++)
+        //    {
+        //        if (JurvicaMax[j] == maxJur)
+        //            chislaMax.Add(j);
+        //    }
+        //    return chislaMax;
+
+        //}
 
     }
 }

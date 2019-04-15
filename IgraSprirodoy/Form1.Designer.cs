@@ -76,6 +76,7 @@
             this.textBox_Alpha.TabIndex = 3;
             this.textBox_Alpha.Text = "60";
             this.textBox_Alpha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_Alpha.TextChanged += new System.EventHandler(this.TextBox_Alpha_TextChanged);
             // 
             // label1
             // 
