@@ -226,6 +226,45 @@ namespace IgraSprirodoy
 
             }
 
+            for (int i = 0; i < PoleStroki; i++)
+            {
+                Label LabelAm = new Label();
+                LabelAm.Size = new Size(50, 20);
+                LabelAm.Location = new Point(-20, 53 + i * LabelAm.Size.Height);
+                PanelReshenieJuvica.Controls.Add(LabelAm);
+                LabelAm.Text = ('A' + (i + 1).ToString());
+                LabelAm.TextAlign = ContentAlignment.TopRight;
+
+            }
+
+            for (int j = 0; j < PoleStolbi; j++)
+            {
+                Label LabelPn = new Label();
+                LabelPn.Size = new Size(50, 20);
+                LabelPn.Location = new Point(30 + j * LabelPn.Size.Width, 30);
+                PanelReshenieJuvica.Controls.Add(LabelPn);
+                LabelPn.Text = ('P' + (j + 1).ToString());
+                LabelPn.TextAlign = ContentAlignment.MiddleCenter;
+            }
+
+            int[] min = Pole_Jurvica.minJurvica();
+            List<int> indexes = Pole_Jurvica.MinStolbJurvica();
+            for (int k = 0; k < PoleStroki; k++)
+            {
+                TextBox LineMinJur = new TextBox();
+                LineMinJur.Enabled = false;
+                LineMinJur.Size = new Size(50, 50);
+                LineMinJur.Location = new Point(30 + PoleStolbi * 50, 50 + k * LineMinJur.Size.Height);
+                PanelReshenieJuvica.Controls.Add(LineMinJur);
+                LineMinJur.Text = min[k].ToString();
+                LineMinJur.BackColor = Color.GreenYellow;
+                Label LabelMinJur = new Label();
+                LabelMinJur.Size = new Size(50, 50);
+                LabelMinJur.Location = new Point(30 + PoleStolbi * 50, 15);
+                PanelReshenieJuvica.Controls.Add(LabelMinJur);
+                LabelMinJur.Text = ("Min");
+                LabelMinJur.TextAlign = ContentAlignment.MiddleCenter;
+            }
         }
 
 
