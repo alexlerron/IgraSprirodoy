@@ -33,9 +33,12 @@
             this.label_Valda = new System.Windows.Forms.Label();
             this.PanelReshenieSevidza = new System.Windows.Forms.Panel();
             this.label_Sevidza = new System.Windows.Forms.Label();
+            this.PanelReshenieJuvica = new System.Windows.Forms.Panel();
+            this.label_Gurvica = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.PanelReshenieValda.SuspendLayout();
             this.PanelReshenieSevidza.SuspendLayout();
+            this.PanelReshenieJuvica.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -46,6 +49,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.PanelReshenieValda);
             this.flowLayoutPanel1.Controls.Add(this.PanelReshenieSevidza);
+            this.flowLayoutPanel1.Controls.Add(this.PanelReshenieJuvica);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -91,6 +95,25 @@
             this.label_Sevidza.TabIndex = 0;
             this.label_Sevidza.Text = "Метод Сэвиджа";
             // 
+            // PanelReshenieJuvica
+            // 
+            this.PanelReshenieJuvica.AutoSize = true;
+            this.PanelReshenieJuvica.Controls.Add(this.label_Gurvica);
+            this.PanelReshenieJuvica.Location = new System.Drawing.Point(3, 65);
+            this.PanelReshenieJuvica.Name = "PanelReshenieJuvica";
+            this.PanelReshenieJuvica.Size = new System.Drawing.Size(136, 24);
+            this.PanelReshenieJuvica.TabIndex = 2;
+            // 
+            // label_Gurvica
+            // 
+            this.label_Gurvica.AutoSize = true;
+            this.label_Gurvica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Gurvica.Location = new System.Drawing.Point(8, 4);
+            this.label_Gurvica.Name = "label_Gurvica";
+            this.label_Gurvica.Size = new System.Drawing.Size(125, 20);
+            this.label_Gurvica.TabIndex = 0;
+            this.label_Gurvica.Text = "Метод Гурвица";
+            // 
             // Form_Reshenie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,6 +129,8 @@
             this.PanelReshenieValda.PerformLayout();
             this.PanelReshenieSevidza.ResumeLayout(false);
             this.PanelReshenieSevidza.PerformLayout();
+            this.PanelReshenieJuvica.ResumeLayout(false);
+            this.PanelReshenieJuvica.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -117,5 +142,7 @@
         private System.Windows.Forms.Label label_Valda;
         private System.Windows.Forms.Panel PanelReshenieSevidza;
         private System.Windows.Forms.Label label_Sevidza;
+        private System.Windows.Forms.Panel PanelReshenieJuvica;
+        private System.Windows.Forms.Label label_Gurvica;
     }
 }
