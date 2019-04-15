@@ -16,6 +16,7 @@ namespace IgraSprirodoy
         int PoleStroki;
         int PoleStolbi;
         int Alpha;
+        int indexMax;
         public Form_Reshenie(int[,] cat, int Stroki, int Stolbi, int alpha)
         {
             PoleCat = cat;
@@ -26,10 +27,38 @@ namespace IgraSprirodoy
             Pole_Sevidza = new Metod_Sevidza(PoleCat, PoleStroki, PoleStolbi);
             Pole_Valda = new Metod_Valda(PoleCat, PoleStroki, PoleStolbi);
             Pole_Jurvica = new Metod_Jurvica(PoleCat, PoleStroki, PoleStolbi);
+            //Pole_Otvet = new Metod_Otvet(PoleCat, PoleStroki, PoleStolbi);
             Metod_Valda_Form();
             Metod_Sevidza_Form();
             Metod_Jurvica_Form();
+            Metod_Otvet_Form();
         }
+
+        private void Metod_Otvet_Form()
+        {
+            List<int> sev = Pole_Sevidza.TheBestSevidza();
+            List<int> vald = Pole_Valda.TheBestValda();
+            int jurv = indexMax;
+
+
+            string str_sev = "Метод Севиджа:";
+            for (int i = 0; i < sev.Count; i++)
+            {
+                str_sev += " A" + (sev[i] + 1).ToString();
+            }
+            string str_vald = "Метод Вальда:";
+            for (int i = 0; i < vald.Count; i++)
+            {
+                str_vald += " A" + (vald[i] + 1).ToString();
+            }
+            string str_jurv = "Метод Гурвица: A" + (jurv+1).ToString();
+
+            label_WinSev.Text = str_sev;
+            label_WinJurv.Text = str_jurv;
+            label_WinValda.Text = str_vald;
+
+        }
+
         public Metod_Sevidza Pole_Sevidza;
         private void Metod_Sevidza_Form()
         {
@@ -330,7 +359,7 @@ namespace IgraSprirodoy
                 SummAlphaJur[j] = (MinAlphaJur[j] + MaxAlphaJur[j]);
             }
             double max = SummAlphaJur.Max();
-            int indexMax = Array.IndexOf(SummAlphaJur, max);
+            indexMax = Array.IndexOf(SummAlphaJur, max);
 
             for (int j = 0; j < PoleStroki; j++)
             {
@@ -340,7 +369,7 @@ namespace IgraSprirodoy
                 LineAlphaJurSumm.Location = new Point(30 + (PoleStolbi + 4) * 50, 50 + j * LineAlphaJurSumm.Size.Height);
                 PanelReshenieJuvica.Controls.Add(LineAlphaJurSumm);
                 LineAlphaJurSumm.Text = (SummAlphaJur[j]).ToString();
-                LineAlphaJurSumm.BackColor = Color.LightGoldenrodYellow;
+                LineAlphaJurSumm.BackColor = Color.MediumSeaGreen;
                 Label LabelAlphaJurSumm = new Label();
                 LabelAlphaJurSumm.Size = new Size(50, 50);
                 LabelAlphaJurSumm.Location = new Point(30 + (PoleStolbi + 4) * 50, 15);
@@ -350,49 +379,7 @@ namespace IgraSprirodoy
                 if (j == indexMax)
                     LineAlphaJurSumm.BackColor = Color.Red;
             }
-
-            //int[] minSev = Pole_Jurvica.minJurvica();
-            //List<int> indexes = Pole_Jurvica.MinStolbJurvica();
-            //for (int k = 0; k < PoleStroki; k++)
-            //{
-            //    TextBox LineMinJur = new TextBox();
-            //    LineMinJur.Enabled = false;
-            //    LineMinJur.Size = new Size(50, 50);
-            //    LineMinJur.Location = new Point(30 + PoleStolbi * 50, 50 + k * LineMinJur.Size.Height);
-            //    PanelReshenieJuvica.Controls.Add(LineMinJur);
-            //    LineMinJur.Text = minSev[k].ToString();
-            //    LineMinJur.BackColor = Color.GreenYellow;
-            //    Label LabelMinJur = new Label();
-            //    LabelMinJur.Size = new Size(50, 50);
-            //    LabelMinJur.Location = new Point(30 + PoleStolbi * 50, 15);
-            //    PanelReshenieJuvica.Controls.Add(LabelMinJur);
-            //    LabelMinJur.Text = ("Min");
-            //    LabelMinJur.TextAlign = ContentAlignment.MiddleCenter;
-            //}
-
-            //int[] maxSev = Pole_Jurvica.maxJurvica();
-            //List<int> indexesmax = Pole_Jurvica.MaxStolbJurvica();
-            //for (int k = 0; k < PoleStroki; k++)
-            //{
-            //    TextBox LineMaxJur = new TextBox();
-            //    LineMaxJur.Enabled = false;
-            //    LineMaxJur.Size = new Size(50, 50);
-            //    LineMaxJur.Location = new Point(30 + PoleStolbi+1 * 50, 50 + k * LineMaxJur.Size.Height);
-            //    PanelReshenieJuvica.Controls.Add(LineMaxJur);
-            //    LineMaxJur.Text = maxSev[k].ToString();
-            //    LineMaxJur.BackColor = Color.GreenYellow;
-            //    Label LabelMaxJur = new Label();
-            //    LabelMaxJur.Size = new Size(50, 50);
-            //    LabelMaxJur.Location = new Point(30 + PoleStolbi * 50, 15);
-            //    PanelReshenieJuvica.Controls.Add(LabelMaxJur);
-            //    LabelMaxJur.Text = ("Max");
-            //    LabelMaxJur.TextAlign = ContentAlignment.MiddleCenter;
-            //}
-
         }
-
-
-
 
         private void Form_Reshenie_Load(object sender, EventArgs e)
         {

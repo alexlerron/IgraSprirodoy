@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Metod_Jurvica.cs" />
     <Compile Include="Metod_Laplasa.cs" />
+    <Compile Include="Metod_Otvet.cs" />
     <Compile Include="Metod_Sevidza.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
