@@ -219,7 +219,7 @@ namespace IgraSprirodoy
                     Line5.Enabled = false;
                     Line5.Size = new Size(50, 50);
                     Line5.Location = new Point(30 + j * Line5.Size.Width, 50 + i * Line5.Size.Height);
-                    PanelReshenieValda.Controls.Add(Line5);
+                    PanelReshenieJuvica.Controls.Add(Line5);
                     Line5.Text = PoleCat[i, j].ToString();
                 }
 

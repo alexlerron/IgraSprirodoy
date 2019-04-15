@@ -52,8 +52,25 @@ namespace IgraSprirodoy
             }
             return maxMassJur;
         }
+        public List<int> MinStolbJurvica()
+        {
+            int[] JurvicaMin;
+            int min;
+            min = int.MinValue;
+            JurvicaMin = minJurvica();
+            for (int j = 0; j < StrokaJurvica; j++)
+            {
+                if (JurvicaMin[j] > min)
+                    min = JurvicaMin[j];
+            }
+            List<int> chislaMin = new List<int>();
+            for (int j = 0; j < StrokaJurvica; j++)
+            {
+                if (JurvicaMin[j] == min)
+                    chislaMin.Add(j);
+            }
+            return chislaMin;
 
-        
-    }
+        }
 
 }
