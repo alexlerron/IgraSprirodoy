@@ -14,12 +14,14 @@ namespace IgraSprirodoy
     {
         int Am;
         int Pn;
+        int Alpha;
         TextBox[,] mass;
         Label[] LabAm;
         Label[] LabPn;
         public Form1()
         {
             InitializeComponent();
+            Alpha = int.Parse(textBox_Alpha.Text);
         }
 
         private void Button_GenMatrix_Click(object sender, EventArgs e)// генерация матрицы
@@ -101,5 +103,7 @@ namespace IgraSprirodoy
             Mya.Show();
 
         }
+        
     }
+
 }

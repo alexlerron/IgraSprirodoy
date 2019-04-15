@@ -16,6 +16,7 @@ namespace IgraSprirodoy
             massJurvica = mass;
             StolbJurvica = Columb;
             StrokaJurvica = Row;
+            
         }
         public int[] minJurvica()
         {
@@ -52,7 +53,7 @@ namespace IgraSprirodoy
             return maxMassJur;
         }
 
-
+        
     }
 
 }
