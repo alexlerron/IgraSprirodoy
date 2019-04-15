@@ -23,8 +23,10 @@ namespace IgraSprirodoy
             InitializeComponent();
             Pole_Sevidza = new Metod_Sevidza(PoleCat, PoleStroki, PoleStolbi);
             Pole_Valda = new Metod_Valda(PoleCat, PoleStroki, PoleStolbi);
+            Pole_Jurvica = new Metod_Jurvica(PoleCat, PoleStroki, PoleStolbi);
             Metod_Valda_Form();
             Metod_Sevidza_Form();
+            Metod_Jurvica_Form();
         }
         public Metod_Sevidza Pole_Sevidza;
         private void Metod_Sevidza_Form()
@@ -204,6 +206,29 @@ namespace IgraSprirodoy
 
 
         }
+
+        public Metod_Jurvica Pole_Jurvica;
+
+        public void Metod_Jurvica_Form()
+        {
+            for (int i = 0; i < PoleStroki; i++)
+            {
+                for (int j = 0; j < PoleStolbi; j++)
+                {
+                    TextBox Line5 = new TextBox();
+                    Line5.Enabled = false;
+                    Line5.Size = new Size(50, 50);
+                    Line5.Location = new Point(30 + j * Line5.Size.Width, 50 + i * Line5.Size.Height);
+                    PanelReshenieValda.Controls.Add(Line5);
+                    Line5.Text = PoleCat[i, j].ToString();
+                }
+
+
+            }
+
+        }
+
+
 
         private void Form_Reshenie_Load(object sender, EventArgs e)
         {

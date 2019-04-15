@@ -22,6 +22,7 @@ namespace IgraSprirodoy
         {
             InitializeComponent();
             Alpha = int.Parse(textBox_Alpha.Text);
+            
         }
 
         private void Button_GenMatrix_Click(object sender, EventArgs e)// генерация матрицы
@@ -89,6 +90,11 @@ namespace IgraSprirodoy
 
         private void Methods_Click(object sender, EventArgs e) // Решение
         {
+            Alpha = int.Parse(textBox_Alpha.Text);
+            if (Alpha > 99)
+            {
+                MessageBox.Show("Недопустимое значение Alpha");
+            }
             int[,] MassivResh;
             MassivResh = new int[Am,Pn];
             for (int i = 0; i < Am; i++)
@@ -101,7 +107,7 @@ namespace IgraSprirodoy
             }
             Form_Reshenie Mya = new Form_Reshenie(MassivResh, Am, Pn);
             Mya.Show();
-
+           
         }
         
     }

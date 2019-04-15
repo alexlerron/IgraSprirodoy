@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IgraSprirodoy
 {
-    class Metod_Jurvica
+    public class Metod_Jurvica
     {
         public int[,] massJurvica;
         public int StolbJurvica;
