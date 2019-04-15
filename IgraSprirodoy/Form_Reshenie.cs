@@ -265,7 +265,11 @@ namespace IgraSprirodoy
                 LabelMinJur.Text = ("Min");
                 LabelMinJur.TextAlign = ContentAlignment.MiddleCenter;
             }
+
+
+
         }
+
 
 
 
