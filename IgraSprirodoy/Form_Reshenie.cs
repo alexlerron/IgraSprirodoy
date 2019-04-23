@@ -17,6 +17,8 @@ namespace IgraSprirodoy
         int PoleStolbi;
         int Alpha;
         int indexMax;
+        int indexMaxLap;
+        double Q;
         public Form_Reshenie(int[,] cat, int Stroki, int Stolbi, int alpha)
         {
             PoleCat = cat;
@@ -28,17 +30,99 @@ namespace IgraSprirodoy
             Pole_Valda = new Metod_Valda(PoleCat, PoleStroki, PoleStolbi);
             Pole_Jurvica = new Metod_Jurvica(PoleCat, PoleStroki, PoleStolbi);
             //Pole_Otvet = new Metod_Otvet(PoleCat, PoleStroki, PoleStolbi);
+            Pole_Laplasa = new Metod_Laplasa(PoleCat, PoleStroki, PoleStolbi);
             Metod_Valda_Form();
             Metod_Sevidza_Form();
             Metod_Jurvica_Form();
+            Metod_Laplasa_Form();
             Metod_Otvet_Form();
+            
         }
 
+        public Metod_Laplasa Pole_Laplasa;
+        private void Metod_Laplasa_Form()
+        {
+            for (int i = 0; i < PoleStroki; i++)
+            {
+                for (int j = 0; j < PoleStolbi; j++)
+                {
+                    TextBox Line1 = new TextBox();
+                    Line1.Enabled = false;
+                    Line1.Size = new Size(50, 50);
+                    Line1.Location = new Point(30 + j * Line1.Size.Width, 50 + i * Line1.Size.Height);
+                    PanelReshenieLaplasa.Controls.Add(Line1);
+                    Line1.Text = PoleCat[i, j].ToString();
+                }
+
+
+            }
+
+
+            for (int i = 0; i < PoleStroki; i++)
+            {
+                Label LabelAm = new Label();
+                LabelAm.Size = new Size(50, 20);
+                LabelAm.Location = new Point(-20, 53 + i * LabelAm.Size.Height);
+                PanelReshenieLaplasa.Controls.Add(LabelAm);
+                LabelAm.Text = ('A' + (i + 1).ToString());
+                LabelAm.TextAlign = ContentAlignment.TopRight;
+
+            }
+
+            for (int j = 0; j < PoleStolbi; j++)
+            {
+                Label LabelPn = new Label();
+                LabelPn.Size = new Size(50, 20);
+                LabelPn.Location = new Point(30 + j * LabelPn.Size.Width, 30);
+                PanelReshenieLaplasa.Controls.Add(LabelPn);
+                LabelPn.Text = ('P' + (j + 1).ToString());
+                LabelPn.TextAlign = ContentAlignment.MiddleCenter;
+            }
+
+             Q = (1.0 / PoleStolbi);
+
+            double[] Summlaplasa = new double[PoleStroki];
+
+            for (int j = 0; j < PoleStroki; j++)
+            {
+                for (int i = 0; i < PoleStolbi; i++)
+                {
+                    Summlaplasa[j] += PoleCat[j,i];
+                }
+                
+            }
+
+            double[] Alaplasa = new double[PoleStroki];
+            double maxLap = Summlaplasa.Max();
+            indexMaxLap = Array.IndexOf(Summlaplasa, maxLap);
+            for (int j = 0; j < PoleStroki; j++)
+            {
+                Alaplasa[j] = (Summlaplasa[j] * Q);
+
+
+                TextBox LineLaplasa = new TextBox();
+                LineLaplasa.Enabled = false;
+                LineLaplasa.Size = new Size(50, 50);
+                LineLaplasa.Location = new Point((PoleStolbi + 1) * 46 , 50 + j * LineLaplasa.Size.Height);
+                PanelReshenieLaplasa.Controls.Add(LineLaplasa);
+                LineLaplasa.Text = Alaplasa[j].ToString();
+                LineLaplasa.BackColor = Color.LightGoldenrodYellow;
+                Label LabelLaplasa = new Label();
+                LabelLaplasa.Size = new Size(50, 50);
+                LabelLaplasa.Location = new Point((PoleStolbi + 1) *46 , 15);
+                PanelReshenieLaplasa.Controls.Add(LabelLaplasa);
+                LabelLaplasa.Text = ("Lap");
+                LabelLaplasa.TextAlign = ContentAlignment.MiddleCenter;
+                if (j == indexMaxLap)
+                    LineLaplasa.BackColor = Color.Red;
+            }
+        }
         private void Metod_Otvet_Form()
         {
             List<int> sev = Pole_Sevidza.TheBestSevidza();
             List<int> vald = Pole_Valda.TheBestValda();
             int jurv = indexMax;
+            double LapWin = indexMaxLap;
 
 
             string str_sev = "Метод Севиджа:";
@@ -52,10 +136,12 @@ namespace IgraSprirodoy
                 str_vald += " A" + (vald[i] + 1).ToString();
             }
             string str_jurv = "Метод Гурвица: A" + (jurv+1).ToString();
+            string str_lap = "Метод Лапласа: А" + (LapWin+1).ToString();
 
             label_WinSev.Text = str_sev;
             label_WinJurv.Text = str_jurv;
             label_WinValda.Text = str_vald;
+            label_WinLaplasa.Text = str_lap;
 
         }
 
@@ -387,6 +473,21 @@ namespace IgraSprirodoy
         }
 
         private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label_WinLaplasa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label_WinJurv_Click(object sender, EventArgs e)
         {
 
         }
